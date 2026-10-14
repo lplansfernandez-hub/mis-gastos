@@ -1,5 +1,5 @@
 /* Service worker de Mis gastos: guarda la app en el iPhone para abrirla sin internet. */
-var CACHE = "mis-gastos-v1";
+var CACHE = "mis-gastos-v2";
 var ASSETS = [
   "./",
   "./index.html",
@@ -11,7 +11,7 @@ var ASSETS = [
 
 self.addEventListener("install", function (e) {
   e.waitUntil(
-    caches.open(CACHE).then(function (c) { return c.addAll(ASSETS); }).then(function () { return self.skipWaiting(); })
+    caches.open(CACHE).then(function (c) { return c.addAll(ASSETS.map(function (u) { return new Request(u, { cache: "reload" }); })); }).then(function () { return self.skipWaiting(); })
   );
 });
 
