@@ -1,5 +1,5 @@
 /* Service worker de Mis gastos: guarda la app en el iPhone para abrirla sin internet. */
-var CACHE = "mis-gastos-v2";
+var CACHE = "mis-gastos-v3";
 var ASSETS = [
   "./",
   "./index.html",
